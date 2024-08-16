@@ -9,12 +9,18 @@ class Ship {
         this.accuracy = accuracy;
     }
 
-    attack() {
-        return "attach message";
+    shoot(opponent) {
+        //Math.random() is to generate a random number between 0 or 1 
+     if (Math.random() < this.accuracy) {
+         opponent.hull -= this.firepower;
+         return true; // Shooter hit the opponent
+     }
+     return false; // Miss the opponent ship
     }
-    
-    destroy () {
-        return "destroy message";
+ 
+    destroyed() {
+     // If hull reaches 0 or less, the ship is destroyed
+     return this.hull <= 0; 
     }
 }
 
