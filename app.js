@@ -49,3 +49,13 @@ console.log (alianShipArray.length)
 alianShipArray.forEach((newShip) => {
     console.log (newShip);
 })
+
+
+//Checking EearthShip shoot
+const earthShipShootResult = earthShip.shoot(alianShipArray[0]);
+console.log (earthShipShootResult)
+
+
+//Checking AlianShip shoot
+const alianShipShootResult = alianShipArray[1].shoot(earthShip);
+console.log (alianShipShootResult)
