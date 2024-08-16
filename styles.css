@@ -1,0 +1,10 @@
+.btnContainer{
+    margin: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.buttonDiv{
+    border: 2px solid black;
+}
