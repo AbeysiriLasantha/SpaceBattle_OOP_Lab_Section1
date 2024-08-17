@@ -12,8 +12,8 @@ let alienShipArray = [];
 const shootBtn = document.getElementById("shoot")
 const resetGameBtn = document.getElementById("retret");
 const loadGameBtn = document.getElementById("loadgame");
-const alienShipDetails=document.getElementsByClassName("alienship");
-const ussShipDetails=document.getElementsByClassName("ussship");
+const ussshipDiv=document.querySelector(".ussshipDiv");
+const alienshipDiv=document.querySelector(".alienshipDiv");
 const messageDiv = document.querySelector(".messageDiv");
 
 
@@ -56,6 +56,8 @@ function loadingGame() {
             alienShipArray.push(alienShip);
         }
     messageDisplay("Game is Loaded");
+    displayShipStatus(earthShip);
+    displayShipStatus(alienShipArray[0]);
 }
 
 // Display messages 
@@ -90,6 +92,30 @@ function attack() {
     alienShipArray.forEach((newShip) => {
     console.log (newShip);
     })
+
+// Display ship status
+
+    function displayShipStatus(ship) {
+        const p1 = document.createElement ('p');
+        p1.textContent="Ship Type: " + ship.type;
+        const p2 = document.createElement ('p');
+        p2.textContent="Ship Name: " + ship.name;
+        const p3 = document.createElement ('p');
+        p3.textContent="Hulls Remaining: " + ship.hull;
+        const p4 = document.createElement ('p');
+        p4.textContent="Firepower: " + ship.firepower;
+        const p5 = document.createElement ('p');
+        p5.textContent="Accuracy: " + ship.accuracy;
+        
+        if (ship.type === "USS") {
+            ussshipDiv.innerHTML="";
+            ussshipDiv.append(p1,p2,p3,p4,p5);
+        } else if (ship.type === "ALIEN"){
+            alienshipDiv.innerHTML="";
+            alienshipDiv.append(p1,p2,p3,p4,p5);
+        }
+
+    }
 
 // Event Listners
     loadGameBtn.addEventListener ("click", loadingGame);
