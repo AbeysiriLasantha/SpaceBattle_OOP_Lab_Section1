@@ -5,7 +5,8 @@
 const noOfAlienShips = 6;
 const alienShipNames = ["Nebulon", "Xylarian", "Zorgon", "Arcturus", "Krylon", "Orion"];
 const earthShipName = "US_AIREX";
-
+let earthShip;
+let alienShipArray = [];
 
 // Creating the base ship class  
 class Ship {
@@ -32,31 +33,21 @@ class Ship {
     }
 }
 
-// Creating the EarthShip object 
-const earthShip = new Ship ("USS",earthShipName, 20, 5, .7);
-    console.log (earthShip);
+function loadingGame() {
+    // Creating the earthShip object 
+    earthShip = new Ship ("USS",earthShipName, 20, 5, .7);
 
-// Creating the 6 AlienShip objects 
-// Define an array to hold the AlienShips 
-const alienShipArray = [];
-// Define the no. of AlienShips
+    // Creating the alienShip objects 
+        for (let ships=1; ships<=noOfAlienShips; ships++) {
+            const hull = Math.floor(Math.random() * 4) + 3; // Range between 3 and 6
+            const firepower = Math.floor(Math.random() * 3) + 2; // Range between 2 and 4
+            const accuracy = Math.random() * 0.2 + 0.6; // Range between 0.6 and 0.8
 
+            const alienShip = new Ship ("ALIEN", alienShipNames[ships-1],hull, firepower, accuracy);
+            alienShipArray.push(alienShip);
+        }
+    }
 
-for (let ships=1; ships<=noOfAlienShips; ships++) {
-    const hull = Math.floor(Math.random() * 4) + 3; // Range between 3 and 6
-    const firepower = Math.floor(Math.random() * 3) + 2; // Range between 2 and 4
-    const accuracy = Math.random() * 0.2 + 0.6; // Range between 0.6 and 0.8
-
-    const alienShip = new Ship ("ALIEN", alienShipNames[ships-1],hull, firepower, accuracy);
-    alienShipArray.push(alienShip);
-}
-
-console.log (alienShipArray.length)
-
-// AlienShip Details 
-alienShipArray.forEach((newShip) => {
-    console.log (newShip);
-})
 
 //Checking EearthShip shoot
 const earthShipShootResult = earthShip.shoot(alienShipArray[0]);
@@ -65,3 +56,8 @@ console.log (earthShipShootResult)
 //Checking EearthShip shoot
 const alienShipShootResult = alienShipArray[1].shoot(earthShip);
 console.log (alienShipShootResult)
+
+// AlienShip Details 
+alienShipArray.forEach((newShip) => {
+    console.log (newShip);
+})
