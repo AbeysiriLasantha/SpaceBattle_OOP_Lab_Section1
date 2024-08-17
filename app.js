@@ -8,6 +8,15 @@ const earthShipName = "US_AIREX";
 let earthShip;
 let alienShipArray = [];
 
+//creat dom variables 
+const shootBtn = document.getElementById("shoot")
+const resetGameBtn = document.getElementById("retret");
+const loadGameBtn = document.getElementById("loadgame");
+const alienShipDetails=document.getElementsByClassName("alienship");
+const ussShipDetails=document.getElementsByClassName("ussship");
+const messageDiv = document.querySelector(".messageDiv");
+
+
 // Creating the base ship class  
 class Ship {
     constructor (type, name, hull, firepower, accuracy) {
@@ -46,18 +55,42 @@ function loadingGame() {
             const alienShip = new Ship ("ALIEN", alienShipNames[ships-1],hull, firepower, accuracy);
             alienShipArray.push(alienShip);
         }
+    messageDisplay("Game is Loaded");
+}
+
+// Display messages 
+function messageDisplay(msgText) {
+    messageDiv.innerHTML="";
+    const message = document.createElement ('p');
+    message.textContent = msgText;
+    messageDiv.append(message);
+}
+
+
+function attack() {
+    if (!earthShip) {
+        console.error("EarthShip is not initialized.");
+        return;
+    }
+    if (alienShipArray.length === 0) {
+        console.error("No alien ships to attack.");
+        return;
     }
 
+    //Checking EearthShip shoot
+    const earthShipShootResult = earthShip.shoot(alienShipArray[0]);
+    console.log (earthShipShootResult)
 
-//Checking EearthShip shoot
-const earthShipShootResult = earthShip.shoot(alienShipArray[0]);
-console.log (earthShipShootResult)
-
-//Checking EearthShip shoot
-const alienShipShootResult = alienShipArray[1].shoot(earthShip);
-console.log (alienShipShootResult)
+    //Checking EearthShip shoot
+    const alienShipShootResult = alienShipArray[1].shoot(earthShip);
+    console.log (alienShipShootResult)
+}
 
 // AlienShip Details 
-alienShipArray.forEach((newShip) => {
+    alienShipArray.forEach((newShip) => {
     console.log (newShip);
-})
+    })
+
+// Event Listners
+    loadGameBtn.addEventListener ("click", loadingGame);
+    shootBtn.addEventListener ("click", attack);
