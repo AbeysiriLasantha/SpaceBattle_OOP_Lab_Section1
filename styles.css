@@ -1,27 +1,28 @@
 .gameTitle {
     text-align: center;
-    background-color: rgb(1, 1, 82);
-    color: blanchedalmond;
+    background-color: black;
+    color:white;
     font-family: Arial, Helvetica, sans-serif;
     margin: 0px;
-    padding: 8px;
+    padding: 20px;
+    height: 50px;
+    text-align: center;
+    font-size: 35px;
 }
 
-.mainDiv {
-     border: 2px solid red;
-}
+
 
 .statusDiv{
     border: 2px solid black;
     width: 100%;
-    padding-top: 3px;
-    padding-bottom: 3px;
+    /* padding-top: 3px;
+    padding-bottom: 3px; */
 }
 
 .statusTitle{
     text-align: center;
-    background-color: beige;
-    color: green;
+    background-color: black;
+    color: white;
     font-family: Arial, Helvetica, sans-serif;
     margin: 0px;
     padding: 5px;
@@ -65,8 +66,8 @@
 }
 
 .alienShipImg{
-    width: 60px; /* Makes the image fill the width of the div */
-    height: 60px; /* Maintains the aspect ratio */
+    width: 200px; /* Makes the image fill the width of the div */
+    height: 200px; /* Maintains the aspect ratio */
     position: absolute; /* Position the image within the div */
     top: 50%; /* Vertically center the image */
     left: 50%; /* Horizontally center the image */
@@ -75,31 +76,42 @@
 
 
 .gameDisplayRightDiv{
-    border: 2px solid rgb(0, 255, 81);    
+    /* border: 2px solid rgb(0, 255, 81);     */
     height: 400px;
     width: 25%;
+    background-color: black;
 }
 
 .buttonDiv {
-    border: 2px solid green;
+    /* border: 2px solid green; */
     background-color: black;
-    height: 30px;
+    height: 35px;
     width: 100%;
 }
 
 .statusDisplayDiv {
-    border: 2px solid rgb(34, 0, 255);   
-
+    /* border: 2px solid rgb(34, 0, 255);    */
+    background-color: black;
+    color: white; 
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
 }
 
-.USAirexStatus {
-    border: 2px solid rgb(34, 0, 255);   
-
+.ussshipDiv{
+    /* border: 2px solid rgb(34, 0, 255);    */
+    /* border: 2px solid rgb(34, 0, 255);    */
+    background-color: black;
+    color: white; 
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
 }
 
 .alienshipDiv {
-    border: 2px solid rgb(34, 0, 255);   
-
+    /* border: 2px solid rgb(34, 0, 255);    */
+    background-color: black;
+    color: white; 
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
 }
 
 /* ================== */

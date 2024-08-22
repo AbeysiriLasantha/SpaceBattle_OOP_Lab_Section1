@@ -95,7 +95,7 @@ function messageDisplay(msgText) {
 
 //display the status of the game
 function gameStatus(remainingAlians, earthShipRemainingHulls) {
-    statusTitle.textContent= "Hulls Remaining...:" + earthShipRemainingHulls + "      Alien Space Ships Remaining...:"+ remainingAlians;
+    statusTitle.textContent= "Remaining Hulls: " + earthShipRemainingHulls + " Remaining Alien Space Ships: " + remainingAlians;
  }
 
 //This function is used to run the game until 
@@ -116,6 +116,9 @@ function attack() {
     return;  
    }
    
+   playShootingMusic();
+  
+
     showPopup("US_AIREX is shootin...")
     //Shoot by earthship (US_AIREX)
     const earthShipShootResult = earthShip.shoot(alienShipArray[alienShipNo]);
@@ -160,7 +163,8 @@ function attack() {
 
         } 
     }    
-    
+    //stop shooting audio
+    stopShootingMusic();
 }
 
 // Display ship status
@@ -196,16 +200,26 @@ function showPopup(message) {
     // Hide the popup after 3 seconds
     setTimeout(() => {
         popup.style.display = 'none';
-    }, 10000); // 3000 milliseconds = 3 seconds
+    }, 800); // 3000 milliseconds = 3 seconds
 }
  // Function to play background music
  function playBackgroundMusic() {
     const music = document.getElementById('backgroundMusic');
     music.volume = 0.5; // Adjust volume (0.0 to 1.0)
-    music.play(); // Start playing the music
+    music.play(); // Start playing the 1000
 }
 
+function playShootingMusic() {
+    const music = document.getElementById('shooting');
+    music.volume = 0.5; // Adjust volume (0.0 to 1.0)
+    music.play(); // Start playing the 1000
+}
 
+function stopShootingMusic() {
+    const music = document.getElementById('shooting');
+    music.pause(); // Pause the music
+    music.currentTime = 0; // Reset the music to the start
+}
 // Event Listners
     //Load the game
     loadGameBtn.addEventListener ("click", loadingGame);
