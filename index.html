@@ -7,26 +7,57 @@
     <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
-    <div>
-        <h1>Space Battle Game</h1>
-        <button class="load" id ="loadgame"> LOAD GAME </button> 
-        <button class="shoot" id ="shoot"> SHOOT </button> 
-        <button class="retret" id ="retret"> RETRET </button>
+    <h1 class="gameTitle">Save the Earth: Space Battle</h1>
 
-        <h1>Game status</h1>
-        <h3>Message</h1>
-        <div class="gameStatusDiv"></div>
-
-        <div class="messageDiv"> </div>
+    <div class="mainDiv">
         
-        <h3>USS</h1>
+        <div class="statusDiv">
+            <p class="statusTitle"><strong> No. of Hull Remaining:  , Space Ships Remaining: </strong> </p> 
+        </div>
+        
+        <div class="gameDisplayDiv">
+            <div class="gameDisplayLeftDiv">  
+                <img src="./images/earthship4.gif" alt="earthShip" class="earthShipImg">
+            </div>
 
-        <div class="ussshipDiv"> </div>
-        <h3>Alien Ship</h1>
-        <div class="alienshipDiv"> </div>
-       
+            <div class="gameDisplayMiddleDiv">
+                    <img src="./images/alienshipnew.gif" alt="alienShip" class="alienShipImg">
+                    <img src="./images/alienship3.gif" alt="alienShip" class="alienShipImg">
+                    <img src="./images/alienship3.gif" alt="alienShip" class="alienShipImg">
+                    <img src="./images/alienship3.gif" alt="alienShip" class="alienShipImg">
+                    <img src="./images/alienship3.gif" alt="alienShip" class="alienShipImg">
+                    <img src="./images/alienshipnew.gif" alt="alienShip" class="alienShipImg">
+            </div>
+
+            <div class="gameDisplayRightDiv">
+                <div class="statusDisplayDiv"><strong>Progress</strong></div>               
+                <div class="ussshipDiv"><strong>USS</strong> </div>
+                <div class="alienshipDiv"><strong>Next Alien Ship</strong> </div>
+            </div>
+
+        </div>
+
+
+        <div class="buttonDiv">
+            <button class="load" id ="loadgame"> <strong> LOAD GAME </strong> </button> 
+            <button class="shoot" id ="shoot"> <strong> FIRE </strong> </button> 
+            <button class="retret" id ="retret"> <strong> RETRET </strong> </button>
+        </div>
+
     </div>
-   
+    
+    <div id="popup" class="popup"></div>
+
+    <audio id="backgroundMusic" src="images/At_Aliens_Gates_preview.mp3" loop></audio>
+    
+    <div id="modalretret" class="modal">
+        <div class="modal-content">
+            <p>Are you sure you want to quit this game...?</p>
+            <button id="confirm-btn">Yes</button>
+            <button id="cancel-btn">No</button>
+        </div>
+    </div>
+    
     <script src="app.js" ></script>
 </body>
 </html>
